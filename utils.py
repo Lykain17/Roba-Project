@@ -1,7 +1,21 @@
 import numpy as np
 
-# Calculate the Gaussian probability
-def gaussian_probability(sensor_data, predicted_distance, sensor_noise):
+# Utility Functions for Particle Filter Localization
+
+# This file contains utility functions used in a particle filter localization project.
+# These functions are essential for probability calculations and obstacle distance measurements
+# within the localization algorithm.
+
+# Functions:
+# Calculates the probability based on sensor data, predicted distance, and sensor noise. It quantifies the likelihood of
+# sensor measurements given the predicted distance.
+# Calculates the distance from a particle's position to the nearest point on an obstacle. This function helps in evaluating the proximity
+# of particles to obstacles.
+
+# Author: Bentchakal Kilyan
+
+# Calculate the probability
+def probability(sensor_data, predicted_distance, sensor_noise):
     # print(f"Sensor Data {sensor_data}, Predicted Distance {predicted_distance}, Sensor_Noise : {sensor_noise}")
     exponent = -((sensor_data - predicted_distance) ** 2) / (2 * sensor_noise ** 2)
     probability = (1 / (sensor_noise * np.sqrt(2 * np.pi))) * np.exp(exponent)

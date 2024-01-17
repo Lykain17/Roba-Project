@@ -1,6 +1,14 @@
 import numpy as np
 
-# Class representing an obstacle in the environment
+# This file contains a class definition for representing obstacles in the environment
+# and a function for detecting collisions between the robot and obstacles.
+
+# Class 'Obstacle':
+# Represents an obstacle with defined minimum and maximum coordinates (x_min, y_min, x_max, y_max).
+# Checks if moving the robot to a new position (new_x, new_y) would result in a collision with any obstacles.
+
+# Author: Bentchakal Kilyan
+
 class Obstacle:
     def __init__(self, x_min, y_min, x_max, y_max):
         self.x_min = x_min

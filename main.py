@@ -5,6 +5,24 @@ import time
 from obstacle import Obstacle, detect_collision
 from simulation import initialize_particles, move_particles, calculate_sensor_data, update_weights, estimate_robot_position, resample_particles
 
+# Particle Filter Robot Localization Simulation
+
+# This file is part of a simulation project for robot localization using the Particle Filter
+# technique. The simulation employs Pygame for visualization and represents the localization
+# process of a robot within an environment containing obstacles.
+
+# - Initialization of Pygame for visualization.
+# - Defining the environment size and the number of particles.
+# - Creating a list of obstacles within the environment.
+# - Handling particle initialization, movement, sensor data, weight updates, and resampling.
+# - Estimating the robot's position based on particle weights.
+# - Visualizing the robot, particles, and obstacles on the screen.
+
+# The simulation allows the user to control the movement of the robot using keyboard inputs.
+# The robot's position is estimated probabilistically using a particle filter.
+
+# Author: Bentchakal Kilyan
+
 def main():
     # Initialize the Pygame library
     pygame.init()

@@ -1,6 +1,21 @@
 import numpy as np
+from utils import probability, calculate_distance_to_obstacle
 
-from utils import gaussian_probability, calculate_distance_to_obstacle
+# Monte Carlo Localization (MCL)
+
+# This file contains functions for Monte Carlo Localization (MCL). MCL employs a set of
+# particles to represent potential robot positions and updates them based on robot motion
+# and sensor data, enabling probabilistic localization.
+
+# - Initializing particles with random positions and equal weights.
+# - Moving particles based on specified robot movement, with added noise for randomness.
+# - Calculating sensor data based on particle positions and obstacles.
+# - Predicting the distance from a particle to the nearest obstacle.
+# - Updating particle weights using sensor data and predicted distances.
+# - Estimating the robot's position based on the weighted average of particle positions.
+# - Resampling particles based on their weights.
+
+# Author: Bentchakal Kilyan
 
 # Initialize the particles with random positions and equal weights
 def initialize_particles(num_particles, environment_size):
@@ -41,7 +56,7 @@ def calculate_predicted_distance(position, obstacles):
 def update_weights(positions, weights, sensor_data, sensor_noise, obstacles):
     for i, position in enumerate(positions):
         predicted_distance = calculate_predicted_distance(position, obstacles)
-        weight_update = gaussian_probability(sensor_data, predicted_distance, sensor_noise)
+        weight_update = probability(sensor_data, predicted_distance, sensor_noise)
         weights[i] *= weight_update
     return weights
 
